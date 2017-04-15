@@ -2,9 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-/**
- * Created by victorpetrov on 13.04.17.
- */
+
 public class dz02 {
     public static void main(String[] args) throws Exception {
         /* Trotchenko
