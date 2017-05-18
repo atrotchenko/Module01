@@ -1,7 +1,9 @@
 package DZ_01_02;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 
 
@@ -12,34 +14,53 @@ public class ConsoleHelper {
     private Scanner in = new Scanner(System.in);
 
 
+
+
+
     public void begin() {
-        String option;
+
+        int option = 0;
         getHelloMessage();
+
         size = getIntFromScanner(in, getErrorMessage());
+
         ArrayHolder arrayHolder = new ArrayHolder(size);
+
         arrayHolder.fillArray(arrayHolder.getMas());
+
         System.out.println("Your initial array is: " + Arrays.toString(arrayHolder.getMas()));
+
         do {
             getMenu();
-            option = in.next();
+
+            Scanner in = new Scanner(System.in);
+
+            try{
+                option = in.nextInt();
+            }catch (InputMismatchException e) {
+                System.out.println("Not a number");
+            }
+
+
+
             switch (option) {
-                case "1": {
+                case (1): {
                     System.out.print(writeMessageForElement());
                     int element = in.nextInt();
                     System.out.println("The element " + element + " is found in " + arrayHolder.findElement(element));
                     break;
                 }
-                case "2": {
+                case (2): {
                     arrayHolder.sortArrayInAscending();
                     System.out.println(Arrays.toString(arrayHolder.getMas()));
                     break;
                 }
-                case "3": {
+                case (3): {
                     arrayHolder.sortArrayInDescending();
                     System.out.println(Arrays.toString(arrayHolder.getMas()));
                     break;
                 }
-                case "4": {
+                case (4): {
                     getExitMessage();
                     break;
                 }
@@ -48,7 +69,7 @@ public class ConsoleHelper {
                     break;
                 }
             }
-        } while (!option.equals("4"));
+        } while (option != 4);
     }
 
     private void getHelloMessage() {

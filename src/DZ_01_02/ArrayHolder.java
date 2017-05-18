@@ -5,6 +5,7 @@ package DZ_01_02;
 public class ArrayHolder {
     private int[] mas;
 
+
     ArrayHolder(int arraySize) {
         mas = new int[arraySize];
     }
@@ -13,6 +14,9 @@ public class ArrayHolder {
     int[] getMas() {
         return mas;
     }
+
+
+
 
     void fillArray(int[] mas) {
         for (int i = 0; i < mas.length; i++) {
